@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Petiva – Cover</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1920px; height: 1080px;
+    overflow: hidden;
+    background: #020c1a;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+  }
+
+  .bg-gradient {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 60% 60%, rgba(41,182,185,0.14) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 10% 70%, rgba(31,54,130,0.28) 0%, transparent 55%),
+      linear-gradient(155deg, #05101e 0%, #020c1a 45%, #04101e 100%);
+    z-index: 0;
+  }
+
+  .bg-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(41,182,185,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(41,182,185,0.035) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 1;
+  }
+
+  /* Giant BG word top-left */
+  .bg-word-top {
+    position: absolute;
+    top: -40px; left: -20px;
+    font-size: 380px;
+    font-weight: 900;
+    letter-spacing: -15px;
+    color: rgba(255,255,255,0.025);
+    line-height: 1;
+    z-index: 1;
+    user-select: none;
+    white-space: nowrap;
+  }
+  /* Second word bottom */
+  .bg-word-bottom {
+    position: absolute;
+    bottom: -40px; right: -20px;
+    font-size: 300px;
+    font-weight: 900;
+    letter-spacing: -10px;
+    color: rgba(255,255,255,0.02);
+    line-height: 1;
+    z-index: 1;
+    user-select: none;
+    white-space: nowrap;
+  }
+
+  .glow {
+    position: absolute; border-radius: 50%;
+    filter: blur(90px); z-index: 2; pointer-events: none;
+  }
+  .g1 { width:500px; height:400px; background:rgba(41,182,185,0.1); bottom:0; right:400px; }
+  .g2 { width:350px; height:350px; background:rgba(31,54,130,0.22); top:50px; left:150px; }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    position: absolute; top: 44px; left: 60px; right: 60px;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand {
+    font-size: 22px; font-weight: 900;
+    color: #fff; letter-spacing: 1px;
+  }
+  .brand span { color: #29B6B9; }
+  .top-links {
+    display: flex; gap: 36px;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+  .copy-tag {
+    font-size: 12px; font-weight: 600;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 2px;
+  }
+
+  /* ── CENTER CONTENT ── */
+  .center {
+    position: absolute; z-index: 10;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 80px;
+  }
+
+  .hero-text {
+    max-width: 560px;
+  }
+
+  .tag-line {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 5px; text-transform: uppercase;
+    color: #29B6B9; margin-bottom: 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .tag-line::before {
+    content: ''; width: 32px; height: 2px; background: #29B6B9;
+  }
+
+  .hero-text h1 {
+    font-size: 80px; font-weight: 900;
+    color: #fff; line-height: 1;
+    letter-spacing: -2px; margin-bottom: 32px;
+  }
+  .hero-text h1 span { color: #29B6B9; }
+
+  .hero-text p {
+    font-size: 17px; line-height: 1.7;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 40px;
+    max-width: 420px;
+  }
+
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: #29B6B9; color: #fff;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    padding: 16px 32px; border-radius: 50px;
+    box-shadow: 0 0 40px rgba(41,182,185,0.3);
+  }
+
+  /* ── DEVICES ── */
+  .devices {
+    position: relative;
+    width: 780px; height: 820px;
+    flex-shrink: 0;
+  }
+
+  /* Desktop browser mockup */
+  .browser {
+    position: absolute;
+    top: 0; left: 0;
+    width: 700px;
+    background: #1c1c1c;
+    border-radius: 14px;
+    box-shadow:
+      0 40px 100px rgba(0,0,0,0.6),
+      0 0 0 1px rgba(255,255,255,0.07);
+  }
+
+  .browser-bar {
+    padding: 12px 16px;
+    display: flex; align-items: center; gap: 12px;
+    background: #242424;
+    border-radius: 14px 14px 0 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .dots { display:flex; gap:6px; }
+  .dot { width:12px; height:12px; border-radius:50%; }
+  .dot.r { background:#ff5f57; }
+  .dot.y { background:#febc2e; }
+  .dot.g { background:#28c840; }
+
+  .url-bar {
+    flex: 1; background: #1a1a1a; border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 12px; color: rgba(255,255,255,0.3);
+    font-family: monospace; letter-spacing: 0;
+  }
+
+  .browser-screen {
+    border-radius: 0 0 14px 14px;
+    overflow: hidden; height: 400px;
+    position: relative;
+  }
+  .browser-screen img {
+    width:100%; height:100%;
+    object-fit: cover; object-position: top;
+  }
+  .browser-glare {
+    position:absolute; inset:0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 45%);
+  }
+
+  /* Phone over browser */
+  .phone-over {
+    position: absolute;
+    right: -30px; bottom: 0;
+    width: 200px; height: 430px;
+    background: #1a1a1a;
+    border-radius: 32px;
+    border: 2px solid rgba(255,255,255,0.13);
+    box-shadow:
+      0 30px 80px rgba(0,0,0,0.7),
+      0 0 0 1px rgba(0,0,0,0.5),
+      0 0 40px rgba(41,182,185,0.15);
+    overflow: hidden;
+  }
+  .phone-over::before {
+    content:''; position:absolute;
+    top:12px; left:50%; transform:translateX(-50%);
+    width:75px; height:22px;
+    background:#000; border-radius:16px; z-index:5;
+  }
+  .phone-over img {
+    width:100%; height:100%;
+    object-fit:cover; object-position:top;
+  }
+  .phone-over-ref {
+    position:absolute; inset:0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 45%);
+  }
+
+  /* ── BOTTOM META ── */
+  .bottom-meta {
+    position: absolute; bottom: 44px; left: 60px; right: 60px;
+    z-index: 20;
+    display: flex; align-items: center; gap: 40px;
+  }
+  .meta-item {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .meta-dot { width:4px; height:4px; border-radius:50%; background:#29B6B9; }
+</style>
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  <div class="bg-grid"></div>
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+  <div class="bg-word-top">PETIVA</div>
+  <div class="bg-word-bottom">VET</div>
+
+  <div class="top-bar">
+    <div class="brand"><span>PETIVA</span> Centro Veterinário</div>
+    <div class="top-links">
+      <span>UI Design</span>
+      <span>Frontend Dev</span>
+      <span>SEO</span>
+    </div>
+    <div class="copy-tag">© 2025</div>
+  </div>
+
+  <div class="center">
+    <div class="hero-text">
+      <div class="tag-line">Landing Page · Clínica Veterinária</div>
+      <h1>Petiva<br><span>Centro</span><br>Vet.</h1>
+      <p>Projeto de landing page focada em conversão para clínica veterinária especializada na Vila Buarque, São Paulo.</p>
+      <div class="cta-btn">Ver Projeto →</div>
+    </div>
+
+    <div class="devices">
+      <!-- Browser mockup -->
+      <div class="browser">
+        <div class="browser-bar">
+          <div class="dots">
+            <div class="dot r"></div>
+            <div class="dot y"></div>
+            <div class="dot g"></div>
+          </div>
+          <div class="url-bar">petivavet.com.br</div>
+        </div>
+        <div class="browser-screen">
+          <img src="../petiva-screenshots/01-desktop-hero.png" alt="Petiva desktop" />
+          <div class="browser-glare"></div>
+        </div>
+      </div>
+
+      <!-- Phone over -->
+      <div class="phone-over">
+        <img src="../petiva-screenshots/10-mobile-hero.png" alt="Petiva mobile" />
+        <div class="phone-over-ref"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-meta">
+    <div class="meta-item"><div class="meta-dot"></div>React + Vite</div>
+    <div class="meta-item"><div class="meta-dot"></div>Tailwind CSS</div>
+    <div class="meta-item"><div class="meta-dot"></div>15 Especialidades</div>
+    <div class="meta-item"><div class="meta-dot"></div>Design Responsivo</div>
+    <div class="meta-item"><div class="meta-dot"></div>WhatsApp CTA</div>
+  </div>
+</body>
+</html>

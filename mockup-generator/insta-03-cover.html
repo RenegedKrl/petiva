@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Insta 03 – Cover</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px; height: 1080px;
+    overflow: hidden; background: #020c1a;
+    font-family: 'Montserrat', sans-serif; position: relative;
+  }
+  .bg {
+    position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 55%, rgba(41,182,185,0.14) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 10% 70%, rgba(31,54,130,0.28) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 50% at 90% 70%, rgba(31,54,130,0.22) 0%, transparent 55%),
+      linear-gradient(155deg, #05101e 0%, #020c1a 45%, #04101e 100%);
+  }
+  .bg-grid {
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(41,182,185,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(41,182,185,0.035) 1px, transparent 1px);
+    background-size: 54px 54px;
+  }
+  .bg-word-tl {
+    position:absolute; top:-30px; left:-15px;
+    font-size:300px; font-weight:900; letter-spacing:-10px;
+    color:rgba(255,255,255,0.022); user-select:none; line-height:1;
+  }
+  .glow { position:absolute; border-radius:50%; filter:blur(80px); pointer-events:none; }
+  .g1 { width:450px; height:350px; background:rgba(41,182,185,0.1); bottom:-60px; left:50%; transform:translateX(-50%); }
+  .g2 { width:320px; height:280px; background:rgba(31,54,130,0.22); top:60px; left:40px; }
+
+  /* ── TOP BAR ── */
+  .top {
+    position:absolute; top:40px; left:48px; right:48px;
+    display:flex; justify-content:space-between; align-items:center; z-index:20;
+  }
+  .brand { font-size:18px; font-weight:900; color:#fff; }
+  .brand span { color:#29B6B9; }
+  .tags { display:flex; gap:20px; }
+  .tag {
+    font-size:10px; font-weight:700; letter-spacing:3px;
+    text-transform:uppercase; color:rgba(255,255,255,0.28);
+  }
+
+  /* ── CENTER TEXT ── */
+  .hero {
+    position:absolute; top:130px; left:48px; right:48px;
+    z-index:20; display:flex; flex-direction:column; align-items:center; text-align:center;
+  }
+  .sub-label {
+    font-size:11px; font-weight:700; letter-spacing:5px; text-transform:uppercase;
+    color:#29B6B9; margin-bottom:18px;
+    display:inline-flex; align-items:center; gap:10px;
+  }
+  .sub-label::before,.sub-label::after { content:''; width:20px; height:1px; background:#29B6B9; }
+  .hero h1 {
+    font-size:74px; font-weight:900; color:#fff;
+    line-height:.95; letter-spacing:-3px;
+  }
+  .hero h1 .teal { color:#29B6B9; }
+  .hero h1 .light { font-weight:300; color:rgba(255,255,255,0.5); }
+
+  /* ── DEVICE ── */
+  .device-wrap {
+    position:absolute;
+    top:360px; left:50%; transform:translateX(-50%);
+    width:880px; z-index:10;
+    display:flex; gap:20px; align-items:flex-end; justify-content:center;
+  }
+
+  /* browser */
+  .browser {
+    width:620px; flex-shrink:0;
+    background:#1c1c1c; border-radius:12px;
+    border:1px solid rgba(255,255,255,0.07);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,0,0,0.3);
+  }
+  .browser-bar {
+    background:#242424; border-radius:12px 12px 0 0;
+    padding:10px 14px; display:flex; align-items:center; gap:10px;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .dots { display:flex; gap:5px; }
+  .dot { width:10px; height:10px; border-radius:50%; }
+  .r{background:#ff5f57;} .y{background:#febc2e;} .g{background:#28c840;}
+  .url-bar {
+    flex:1; background:#1a1a1a; border-radius:5px;
+    padding:5px 12px; font-size:10px; color:rgba(255,255,255,0.25); font-family:monospace;
+  }
+  .browser-screen { border-radius:0 0 12px 12px; overflow:hidden; height:320px; position:relative; }
+  .browser-screen img { width:100%; height:100%; object-fit:cover; object-position:top; }
+  .browser-screen::after {
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 45%);
+  }
+
+  /* phone */
+  .phone-small {
+    width:185px; height:390px;
+    background:#1a1a1a; border-radius:30px;
+    border:2px solid rgba(255,255,255,0.12);
+    box-shadow: 0 25px 70px rgba(0,0,0,0.7), 0 0 40px rgba(41,182,185,0.15);
+    position:relative; overflow:hidden; flex-shrink:0;
+    transform:translateY(0);
+  }
+  .phone-small::before {
+    content:''; position:absolute;
+    top:11px; left:50%; transform:translateX(-50%);
+    width:66px; height:20px;
+    background:#000; border-radius:13px; z-index:5;
+  }
+  .phone-small img { width:100%; height:100%; object-fit:cover; object-position:top; }
+  .phone-small::after {
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(135deg, rgba(255,255,255,0.07) 0%, transparent 50%);
+  }
+
+  /* ── BOTTOM ── */
+  .footer {
+    position:absolute; bottom:36px; left:48px; right:48px;
+    display:flex; justify-content:space-between; align-items:center; z-index:20;
+  }
+  .meta { display:flex; gap:28px; }
+  .m { font-size:10px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.25); display:flex; align-items:center; gap:6px; }
+  .m::before { content:''; width:4px; height:4px; border-radius:50%; background:#29B6B9; }
+  .at { font-size:13px; font-weight:700; color:#29B6B9; letter-spacing:1px; }
+</style>
+</head>
+<body>
+  <div class="bg"></div><div class="bg-grid"></div>
+  <div class="glow g1"></div><div class="glow g2"></div>
+  <div class="bg-word-tl">PETIVA</div>
+
+  <div class="top">
+    <div class="brand"><span>PETIVA</span> Centro Veterinário</div>
+    <div class="tags">
+      <span class="tag">UI Design</span>
+      <span class="tag">Frontend</span>
+      <span class="tag">SEO</span>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="sub-label">Landing Page · Clínica Veterinária</div>
+    <h1>Petiva<br><span class="teal">Centro</span> <span class="light">Vet.</span></h1>
+  </div>
+
+  <div class="device-wrap">
+    <div class="browser">
+      <div class="browser-bar">
+        <div class="dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
+        <div class="url-bar">petivavet.com.br</div>
+      </div>
+      <div class="browser-screen">
+        <img src="../petiva-screenshots/01-desktop-hero.png" alt="" />
+      </div>
+    </div>
+    <div class="phone-small">
+      <img src="../petiva-screenshots/10-mobile-hero.png" alt="" />
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="meta">
+      <div class="m">React + Vite</div>
+      <div class="m">Tailwind CSS</div>
+      <div class="m">Vila Buarque · SP</div>
+    </div>
+    <div class="at">@mazyos</div>
+  </div>
+</body>
+</html>

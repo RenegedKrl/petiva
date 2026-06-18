@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Petiva – Seções do Site</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1920px; height: 1080px;
+    overflow: hidden;
+    background: #020c1a;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+  }
+
+  .bg-gradient {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 90% 70% at 50% 50%, rgba(41,182,185,0.1) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 40% at 15% 80%, rgba(31,54,130,0.3) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 40% at 85% 20%, rgba(31,54,130,0.2) 0%, transparent 55%),
+      linear-gradient(160deg, #050f1c 0%, #020c1a 50%, #030f1e 100%);
+    z-index: 0;
+  }
+  .bg-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(41,182,185,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(41,182,185,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 1;
+  }
+  .glow { position:absolute; border-radius:50%; filter:blur(100px); z-index:2; pointer-events:none; }
+  .g1 { width:600px; height:400px; background:rgba(41,182,185,0.08); bottom:-100px; left:50%; transform:translateX(-50%); }
+
+  /* ── HEADER ── */
+  .header {
+    position: absolute; top: 44px; left: 60px; right: 60px;
+    z-index: 20;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand { font-size: 20px; font-weight:900; color:#fff; }
+  .brand span { color:#29B6B9; }
+  .header-tag {
+    font-size:11px; font-weight:700; letter-spacing:5px; text-transform:uppercase;
+    color:rgba(255,255,255,0.3);
+  }
+
+  /* ── BIG LABEL ── */
+  .section-label {
+    position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
+    font-size: 20px; font-weight:700; letter-spacing:6px;
+    text-transform:uppercase; color:#29B6B9;
+    text-align:center; white-space:nowrap;
+    z-index: 20;
+    top: 120px; left: 50%; transform: translateX(-50%);
+  }
+
+  /* ── SCREENS ROW ── */
+  .screens-row {
+    position: absolute;
+    top: 160px; left: 60px; right: 60px;
+    display: flex; gap: 24px;
+    z-index: 10;
+  }
+
+  .screen-card {
+    flex: 1;
+    background: #0e1e32;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.07);
+    box-shadow:
+      0 20px 60px rgba(0,0,0,0.5),
+      0 0 0 1px rgba(0,0,0,0.3);
+    position: relative;
+  }
+
+  /* browser bar */
+  .screen-card-bar {
+    background: #1a2d44;
+    padding: 10px 14px;
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .dots-small { display:flex; gap:5px; }
+  .dot-s { width:9px; height:9px; border-radius:50%; }
+  .ds-r { background:#ff5f57; } .ds-y { background:#febc2e; } .ds-g { background:#28c840; }
+  .url-small {
+    flex:1; background:rgba(0,0,0,0.3); border-radius:4px;
+    padding:4px 10px; font-size:10px; color:rgba(255,255,255,0.2);
+    font-family:monospace;
+  }
+
+  .screen-card-img {
+    height: 580px; overflow: hidden; position: relative;
+  }
+  .screen-card-img img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: top;
+  }
+  .screen-card-img::after {
+    content:'';
+    position:absolute; bottom:0; left:0; right:0; height:120px;
+    background: linear-gradient(to bottom, transparent, rgba(14,30,50,0.9));
+    pointer-events:none;
+  }
+
+  .screen-card-label {
+    position:absolute; bottom:0; left:0; right:0;
+    padding:20px 20px 16px;
+    background: linear-gradient(to top, #0a1929, transparent);
+    z-index:5;
+  }
+  .screen-card-label .scl-tag {
+    font-size:10px; font-weight:700; letter-spacing:3px;
+    text-transform:uppercase; color:#29B6B9; margin-bottom:6px; display:block;
+  }
+  .screen-card-label .scl-title {
+    font-size:15px; font-weight:700; color:#fff;
+  }
+
+  /* ── BOTTOM ── */
+  .bottom-row {
+    position: absolute; bottom: 36px; left:60px; right:60px;
+    z-index:20;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .bottom-stats { display:flex; gap:48px; }
+  .stat .num { font-size:28px; font-weight:900; color:#29B6B9; display:block; }
+  .stat .lbl { font-size:10px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.3); }
+  .bottom-cta {
+    font-size:11px; font-weight:700; letter-spacing:4px;
+    text-transform:uppercase; color:rgba(255,255,255,0.2);
+  }
+</style>
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  <div class="bg-grid"></div>
+  <div class="glow g1"></div>
+
+  <div class="header">
+    <div class="brand"><span>Petiva</span> · Centro Veterinário</div>
+    <div class="header-tag">Seções do Site · Landing Page</div>
+  </div>
+
+  <div class="section-label">Visão Geral das Seções</div>
+
+  <div class="screens-row">
+    <!-- Screen 1 - Hero -->
+    <div class="screen-card">
+      <div class="screen-card-bar">
+        <div class="dots-small"><div class="dot-s ds-r"></div><div class="dot-s ds-y"></div><div class="dot-s ds-g"></div></div>
+        <div class="url-small">petivavet.com.br</div>
+      </div>
+      <div class="screen-card-img">
+        <img src="../petiva-screenshots/01-desktop-hero.png" alt="" />
+      </div>
+      <div class="screen-card-label">
+        <span class="scl-tag">01 · Hero</span>
+        <span class="scl-title">Excelência médica e cuidado genuíno</span>
+      </div>
+    </div>
+
+    <!-- Screen 2 - Features -->
+    <div class="screen-card">
+      <div class="screen-card-bar">
+        <div class="dots-small"><div class="dot-s ds-r"></div><div class="dot-s ds-y"></div><div class="dot-s ds-g"></div></div>
+        <div class="url-small">petivavet.com.br/#especialidades</div>
+      </div>
+      <div class="screen-card-img">
+        <img src="../petiva-screenshots/03-desktop-section2.png" alt="" />
+      </div>
+      <div class="screen-card-label">
+        <span class="scl-tag">02 · Pilares</span>
+        <span class="scl-title">A estrutura que o seu melhor amigo merece</span>
+      </div>
+    </div>
+
+    <!-- Screen 3 - Dark section -->
+    <div class="screen-card">
+      <div class="screen-card-bar">
+        <div class="dots-small"><div class="dot-s ds-r"></div><div class="dot-s ds-y"></div><div class="dot-s ds-g"></div></div>
+        <div class="url-small">petivavet.com.br/#sobre</div>
+      </div>
+      <div class="screen-card-img">
+        <img src="../petiva-screenshots/04-desktop-section3.png" alt="" />
+      </div>
+      <div class="screen-card-label">
+        <span class="scl-tag">03 · Sobre</span>
+        <span class="scl-title">Dra. Talita Oliveira Rodrigues</span>
+      </div>
+    </div>
+
+    <!-- Screen 4 - Location/CTA -->
+    <div class="screen-card">
+      <div class="screen-card-bar">
+        <div class="dots-small"><div class="dot-s ds-r"></div><div class="dot-s ds-y"></div><div class="dot-s ds-g"></div></div>
+        <div class="url-small">petivavet.com.br/#localizacao</div>
+      </div>
+      <div class="screen-card-img">
+        <img src="../petiva-screenshots/05-desktop-section4.png" alt="" />
+      </div>
+      <div class="screen-card-label">
+        <span class="scl-tag">04 · Localização</span>
+        <span class="scl-title">Vila Buarque · São Paulo</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-row">
+    <div class="bottom-stats">
+      <div class="stat"><span class="num">15</span><span class="lbl">Especialidades</span></div>
+      <div class="stat"><span class="num">12+</span><span class="lbl">Seções</span></div>
+      <div class="stat"><span class="num">100%</span><span class="lbl">Responsivo</span></div>
+    </div>
+    <div class="bottom-cta">Petiva · 2025</div>
+  </div>
+</body>
+</html>

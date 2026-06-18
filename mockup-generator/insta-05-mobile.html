@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Insta 05 – Mobile Showcase</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px; height: 1080px;
+    overflow: hidden; background: #020c1a;
+    font-family: 'Montserrat', sans-serif; position: relative;
+  }
+  .bg {
+    position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 80% 60% at 65% 60%, rgba(41,182,185,0.13) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 15% 40%, rgba(31,54,130,0.28) 0%, transparent 55%),
+      linear-gradient(150deg, #060f1c 0%, #020c1a 55%, #030e1c 100%);
+  }
+  .bg-grid {
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(41,182,185,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(41,182,185,0.035) 1px, transparent 1px);
+    background-size: 54px 54px;
+  }
+  .bg-word {
+    position:absolute; top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    font-size:280px; font-weight:900; letter-spacing:-10px;
+    color:rgba(255,255,255,0.018); white-space:nowrap; user-select:none;
+  }
+  .glow { position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none; }
+  .g1 { width:420px; height:420px; background:rgba(41,182,185,0.1); right:60px; top:50%; transform:translateY(-50%); }
+  .g2 { width:360px; height:280px; background:rgba(31,54,130,0.22); left:30px; top:80px; }
+
+  /* ── LEFT ── */
+  .left {
+    position:absolute; top:0; left:0; bottom:0;
+    width:390px; padding:70px 44px;
+    display:flex; flex-direction:column; justify-content:center; z-index:10;
+  }
+  .tag {
+    font-size:11px; font-weight:700; letter-spacing:5px; text-transform:uppercase;
+    color:#29B6B9; margin-bottom:20px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .tag::before { content:''; width:24px; height:2px; background:#29B6B9; }
+
+  .left h2 { font-size:48px; font-weight:900; color:#fff; line-height:1.05; letter-spacing:-1.5px; margin-bottom:20px; }
+  .left h2 span { color:#29B6B9; }
+
+  .left p { font-size:13px; line-height:1.75; color:rgba(255,255,255,0.42); margin-bottom:34px; }
+
+  .obj-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .obj-card {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:10px; padding:14px 14px 12px;
+  }
+  .obj-num { font-size:10px; font-weight:700; letter-spacing:3px; color:#29B6B9; margin-bottom:6px; display:block; }
+  .obj-title { font-size:12px; font-weight:700; color:#fff; margin-bottom:3px; }
+  .obj-desc { font-size:10px; color:rgba(255,255,255,0.32); line-height:1.45; }
+
+  .footer-at {
+    margin-top:28px;
+    font-size:12px; font-weight:700; color:#29B6B9; letter-spacing:2px;
+  }
+
+  /* ── PHONES ── */
+  .phones {
+    position:absolute;
+    right:0; top:0; bottom:0;
+    width:700px;
+    display:flex; align-items:center; justify-content:center;
+    gap:14px; padding:30px 40px 30px 0; z-index:10;
+  }
+
+  .phone {
+    width:165px; height:360px;
+    background:#181818; border-radius:28px;
+    border:2px solid rgba(255,255,255,0.11);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.5), 0 25px 70px rgba(0,0,0,0.6);
+    position:relative; overflow:hidden; flex-shrink:0;
+  }
+  .phone::before {
+    content:''; position:absolute;
+    top:10px; left:50%; transform:translateX(-50%);
+    width:60px; height:19px;
+    background:#000; border-radius:12px; z-index:5;
+  }
+  .phone img { width:100%; height:100%; object-fit:cover; object-position:top; }
+  .phone-ref {
+    position:absolute; inset:0;
+    background:linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 50%);
+    z-index:3;
+  }
+  .pbr { position:absolute; right:-2px; top:90px; width:2px; height:40px; background:rgba(255,255,255,0.11); border-radius:2px; }
+  .pbl { position:absolute; left:-2px; top:80px; width:2px; height:24px; background:rgba(255,255,255,0.11); border-radius:2px; }
+  .pbl2 { position:absolute; left:-2px; top:114px; width:2px; height:48px; background:rgba(255,255,255,0.11); border-radius:2px; }
+
+  .p1 { transform:translateY(50px); opacity:.75; filter:brightness(.78); }
+  .p2 { width:188px; height:408px; transform:translateY(16px); z-index:3;
+        box-shadow:0 0 0 1px rgba(0,0,0,.5),0 35px 90px rgba(0,0,0,.8),0 0 50px rgba(41,182,185,.18); }
+  .p3 { transform:translateY(-6px); z-index:2; }
+  .p4 { transform:translateY(36px); opacity:.8; filter:brightness(.82); }
+</style>
+</head>
+<body>
+  <div class="bg"></div><div class="bg-grid"></div>
+  <div class="glow g1"></div><div class="glow g2"></div>
+  <div class="bg-word">MOBILE</div>
+
+  <div class="left">
+    <div class="tag">Design Mobile-First</div>
+    <h2>Experiência<br><span>Perfeita</span><br>no Mobile</h2>
+    <p>Interface otimizada para smartphones, com máxima conversão em qualquer tela.</p>
+
+    <div class="obj-grid">
+      <div class="obj-card">
+        <span class="obj-num">01</span>
+        <div class="obj-title">Performance</div>
+        <div class="obj-desc">Carregamento rápido</div>
+      </div>
+      <div class="obj-card">
+        <span class="obj-num">02</span>
+        <div class="obj-title">Conversão</div>
+        <div class="obj-desc">CTA WhatsApp fixo</div>
+      </div>
+      <div class="obj-card">
+        <span class="obj-num">03</span>
+        <div class="obj-title">UX Mobile</div>
+        <div class="obj-desc">Touch-friendly</div>
+      </div>
+      <div class="obj-card">
+        <span class="obj-num">04</span>
+        <div class="obj-title">SEO Local</div>
+        <div class="obj-desc">Buscas em São Paulo</div>
+      </div>
+    </div>
+    <div class="footer-at">@mazyos</div>
+  </div>
+
+  <div class="phones">
+    <div class="phone p1">
+      <img src="../petiva-screenshots/14-mobile-section4.png" alt="" />
+      <div class="pbr"></div><div class="pbl"></div><div class="pbl2"></div>
+      <div class="phone-ref"></div>
+    </div>
+    <div class="phone p2">
+      <img src="../petiva-screenshots/10-mobile-hero.png" alt="" />
+      <div class="pbr"></div><div class="pbl"></div><div class="pbl2"></div>
+      <div class="phone-ref"></div>
+    </div>
+    <div class="phone p3">
+      <img src="../petiva-screenshots/11-mobile-section1.png" alt="" />
+      <div class="pbr"></div><div class="pbl"></div><div class="pbl2"></div>
+      <div class="phone-ref"></div>
+    </div>
+    <div class="phone p4">
+      <img src="../petiva-screenshots/12-mobile-section2.png" alt="" />
+      <div class="pbr"></div><div class="pbl"></div><div class="pbl2"></div>
+      <div class="phone-ref"></div>
+    </div>
+  </div>
+</body>
+</html>

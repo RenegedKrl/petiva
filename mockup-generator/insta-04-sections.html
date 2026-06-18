@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Insta 04 – Sections Grid</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px; height: 1080px;
+    overflow: hidden; background: #020c1a;
+    font-family: 'Montserrat', sans-serif; position: relative;
+  }
+  .bg {
+    position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 90% 70% at 50% 50%, rgba(41,182,185,0.1) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 40% at 15% 80%, rgba(31,54,130,0.3) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 40% at 85% 20%, rgba(31,54,130,0.22) 0%, transparent 55%),
+      linear-gradient(160deg, #050f1c 0%, #020c1a 50%, #030f1e 100%);
+  }
+  .bg-grid {
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(41,182,185,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(41,182,185,0.03) 1px, transparent 1px);
+    background-size: 54px 54px;
+  }
+  .glow { position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none; }
+  .g1 { width:500px; height:400px; background:rgba(41,182,185,0.08); bottom:-80px; left:50%; transform:translateX(-50%); }
+
+  /* ── HEADER ── */
+  .header {
+    position:absolute; top:36px; left:44px; right:44px;
+    display:flex; justify-content:space-between; align-items:center; z-index:20;
+  }
+  .brand { font-size:18px; font-weight:900; color:#fff; }
+  .brand span { color:#29B6B9; }
+  .section-title {
+    font-size:11px; font-weight:700; letter-spacing:5px;
+    text-transform:uppercase; color:rgba(255,255,255,0.3);
+  }
+
+  /* ── GRID ── */
+  .grid {
+    position:absolute;
+    top:96px; left:30px; right:30px; bottom:90px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap:16px;
+  }
+
+  .card {
+    background:#0e1e32;
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,0.07);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+    position:relative;
+    display:flex; flex-direction:column;
+  }
+
+  .card-bar {
+    background:#162437;
+    padding:8px 12px;
+    display:flex; align-items:center; gap:8px;
+    flex-shrink:0;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+  }
+  .cdots { display:flex; gap:4px; }
+  .cd { width:8px; height:8px; border-radius:50%; }
+  .cr{background:#ff5f57;} .cy{background:#febc2e;} .cg{background:#28c840;}
+  .curl { flex:1; background:rgba(0,0,0,0.3); border-radius:4px; padding:3px 10px; font-size:9px; color:rgba(255,255,255,0.2); font-family:monospace; }
+
+  .card-img { flex:1; overflow:hidden; position:relative; }
+  .card-img img { width:100%; height:100%; object-fit:cover; object-position:top; }
+  .card-img::after {
+    content:''; position:absolute; bottom:0; left:0; right:0; height:100px;
+    background:linear-gradient(to bottom, transparent, rgba(14,30,50,0.95));
+  }
+
+  .card-label {
+    position:absolute; bottom:0; left:0; right:0;
+    padding:16px 16px 14px; z-index:5;
+  }
+  .c-tag { font-size:9px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:#29B6B9; margin-bottom:5px; display:block; }
+  .c-title { font-size:13px; font-weight:700; color:#fff; line-height:1.3; }
+
+  /* ── FOOTER ── */
+  .footer {
+    position:absolute; bottom:26px; left:44px; right:44px;
+    display:flex; justify-content:space-between; align-items:center; z-index:20;
+  }
+  .stats { display:flex; gap:28px; }
+  .stat .num { font-size:20px; font-weight:900; color:#29B6B9; display:block; }
+  .stat .lbl { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.28); }
+  .at { font-size:12px; font-weight:700; color:rgba(255,255,255,0.2); letter-spacing:2px; }
+</style>
+</head>
+<body>
+  <div class="bg"></div><div class="bg-grid"></div>
+  <div class="glow g1"></div>
+
+  <div class="header">
+    <div class="brand"><span>Petiva</span> · Centro Veterinário</div>
+    <div class="section-title">Seções do Site</div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-bar">
+        <div class="cdots"><div class="cd cr"></div><div class="cd cy"></div><div class="cd cg"></div></div>
+        <div class="curl">petivavet.com.br</div>
+      </div>
+      <div class="card-img"><img src="../petiva-screenshots/01-desktop-hero.png" alt="" /></div>
+      <div class="card-label">
+        <span class="c-tag">01 · Hero</span>
+        <span class="c-title">Excelência médica e cuidado genuíno</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-bar">
+        <div class="cdots"><div class="cd cr"></div><div class="cd cy"></div><div class="cd cg"></div></div>
+        <div class="curl">petivavet.com.br/#especialidades</div>
+      </div>
+      <div class="card-img"><img src="../petiva-screenshots/03-desktop-section2.png" alt="" /></div>
+      <div class="card-label">
+        <span class="c-tag">02 · Especialidades</span>
+        <span class="c-title">A estrutura que o seu melhor amigo merece</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-bar">
+        <div class="cdots"><div class="cd cr"></div><div class="cd cy"></div><div class="cd cg"></div></div>
+        <div class="curl">petivavet.com.br/#sobre</div>
+      </div>
+      <div class="card-img"><img src="../petiva-screenshots/04-desktop-section3.png" alt="" /></div>
+      <div class="card-label">
+        <span class="c-tag">03 · Sobre</span>
+        <span class="c-title">Dra. Talita Oliveira Rodrigues</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-bar">
+        <div class="cdots"><div class="cd cr"></div><div class="cd cy"></div><div class="cd cg"></div></div>
+        <div class="curl">petivavet.com.br/#localizacao</div>
+      </div>
+      <div class="card-img"><img src="../petiva-screenshots/05-desktop-section4.png" alt="" /></div>
+      <div class="card-label">
+        <span class="c-tag">04 · Localização</span>
+        <span class="c-title">Vila Buarque · São Paulo</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="stats">
+      <div class="stat"><span class="num">15</span><span class="lbl">Especialidades</span></div>
+      <div class="stat"><span class="num">12+</span><span class="lbl">Seções</span></div>
+      <div class="stat"><span class="num">100%</span><span class="lbl">Responsivo</span></div>
+    </div>
+    <div class="at">@mazyos</div>
+  </div>
+</body>
+</html>

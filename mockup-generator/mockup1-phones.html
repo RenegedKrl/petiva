@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Petiva – Phone Mockups</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: #020c1a;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+  }
+
+  /* ── BACKGROUND ── */
+  .bg-gradient {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 70%, rgba(41,182,185,0.18) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 50% at 20% 80%, rgba(31,54,130,0.35) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 80% 75%, rgba(31,54,130,0.25) 0%, transparent 55%),
+      linear-gradient(160deg, #06111f 0%, #020c1a 40%, #030f1e 70%, #020c1a 100%);
+    z-index: 0;
+  }
+
+  /* subtle grid */
+  .bg-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(41,182,185,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(41,182,185,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 1;
+  }
+
+  /* large BG word */
+  .bg-text {
+    position: absolute;
+    bottom: -60px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 340px;
+    font-weight: 900;
+    letter-spacing: -10px;
+    color: rgba(255,255,255,0.025);
+    white-space: nowrap;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* ── CONTENT ── */
+  .content {
+    position: relative; z-index: 10;
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
+
+  .label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #29B6B9;
+    margin-bottom: 12px;
+  }
+
+  .title {
+    font-size: 52px;
+    font-weight: 900;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 60px;
+    line-height: 1.1;
+  }
+  .title span { color: #29B6B9; }
+
+  /* ── PHONES CONTAINER ── */
+  .phones {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0;
+    height: 680px;
+  }
+
+  /* ── PHONE FRAME ── */
+  .phone {
+    width: 240px;
+    height: 520px;
+    border-radius: 38px;
+    background: #1a1a1a;
+    border: 3px solid rgba(255,255,255,0.15);
+    box-shadow:
+      0 0 0 1px rgba(0,0,0,0.5),
+      0 40px 100px rgba(0,0,0,0.6),
+      0 0 60px rgba(41,182,185,0.12),
+      inset 0 1px 0 rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  /* Dynamic island */
+  .phone::before {
+    content: '';
+    position: absolute;
+    top: 14px; left: 50%; transform: translateX(-50%);
+    width: 90px; height: 26px;
+    background: #000;
+    border-radius: 20px;
+    z-index: 10;
+  }
+
+  .phone-screen {
+    position: absolute;
+    inset: 0;
+    border-radius: 36px;
+    overflow: hidden;
+  }
+
+  .phone-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  /* Left phone - tilted left */
+  .phone-left {
+    transform: rotate(-14deg) translateY(-20px) translateX(40px);
+    z-index: 1;
+    opacity: 0.88;
+    filter: brightness(0.85);
+  }
+
+  /* Center phone - upright, bigger */
+  .phone-center {
+    width: 280px;
+    height: 610px;
+    border-radius: 44px;
+    transform: translateY(-40px);
+    z-index: 3;
+    box-shadow:
+      0 0 0 1px rgba(0,0,0,0.5),
+      0 60px 120px rgba(0,0,0,0.8),
+      0 0 80px rgba(41,182,185,0.2);
+  }
+  .phone-center::before {
+    width: 100px; height: 28px;
+  }
+
+  /* Right phone - tilted right */
+  .phone-right {
+    transform: rotate(14deg) translateY(-20px) translateX(-40px);
+    z-index: 1;
+    opacity: 0.88;
+    filter: brightness(0.85);
+  }
+
+  /* Phone side buttons */
+  .phone-btn-right {
+    position: absolute;
+    right: -4px; top: 120px;
+    width: 4px; height: 50px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 2px;
+  }
+  .phone-btn-left {
+    position: absolute;
+    left: -4px; top: 100px;
+    width: 4px; height: 30px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 2px;
+  }
+  .phone-btn-left2 {
+    position: absolute;
+    left: -4px; top: 140px;
+    width: 4px; height: 60px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 2px;
+  }
+
+  /* reflection effect */
+  .phone-reflection {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 50%);
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  /* ── BOTTOM INFO ── */
+  .info-bar {
+    position: absolute;
+    bottom: 36px; left: 0; right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    padding: 0 80px;
+    z-index: 10;
+  }
+
+  .info-item {
+    text-align: center;
+  }
+  .info-item .num {
+    font-size: 28px;
+    font-weight: 900;
+    color: #29B6B9;
+    display: block;
+  }
+  .info-item .desc {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .divider {
+    width: 1px;
+    background: rgba(255,255,255,0.1);
+    align-self: stretch;
+  }
+
+  /* glow dots */
+  .glow-dot {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 2;
+    pointer-events: none;
+  }
+  .glow-dot-1 {
+    width: 400px; height: 400px;
+    background: rgba(41,182,185,0.12);
+    bottom: 0; left: 50%; transform: translateX(-50%);
+  }
+  .glow-dot-2 {
+    width: 300px; height: 300px;
+    background: rgba(31,54,130,0.25);
+    top: 10%; left: 5%;
+  }
+  .glow-dot-3 {
+    width: 300px; height: 300px;
+    background: rgba(31,54,130,0.2);
+    top: 10%; right: 5%;
+  }
+</style>
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  <div class="bg-grid"></div>
+  <div class="glow-dot glow-dot-1"></div>
+  <div class="glow-dot glow-dot-2"></div>
+  <div class="glow-dot glow-dot-3"></div>
+  <div class="bg-text">PETIVA</div>
+
+  <div class="content">
+    <div class="label">Petiva · Centro Veterinário · Landing Page</div>
+    <div class="title">Design Responsivo <span>para todos os dispositivos</span></div>
+
+    <div class="phones">
+      <!-- Phone Left -->
+      <div class="phone phone-left">
+        <div class="phone-screen">
+          <img src="../petiva-screenshots/12-mobile-section2.png" alt="Petiva mobile" />
+        </div>
+        <div class="phone-btn-left"></div>
+        <div class="phone-btn-left2"></div>
+        <div class="phone-btn-right"></div>
+        <div class="phone-reflection"></div>
+      </div>
+
+      <!-- Phone Center -->
+      <div class="phone phone-center">
+        <div class="phone-screen">
+          <img src="../petiva-screenshots/10-mobile-hero.png" alt="Petiva mobile hero" />
+        </div>
+        <div class="phone-btn-left"></div>
+        <div class="phone-btn-left2"></div>
+        <div class="phone-btn-right"></div>
+        <div class="phone-reflection"></div>
+      </div>
+
+      <!-- Phone Right -->
+      <div class="phone phone-right">
+        <div class="phone-screen">
+          <img src="../petiva-screenshots/13-mobile-section3.png" alt="Petiva mobile section" />
+        </div>
+        <div class="phone-btn-left"></div>
+        <div class="phone-btn-left2"></div>
+        <div class="phone-btn-right"></div>
+        <div class="phone-reflection"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-bar">
+    <div class="info-item">
+      <span class="num">15</span>
+      <span class="desc">Especialidades</span>
+    </div>
+    <div class="divider"></div>
+    <div class="info-item">
+      <span class="num">100%</span>
+      <span class="desc">Responsivo</span>
+    </div>
+    <div class="divider"></div>
+    <div class="info-item">
+      <span class="num">React</span>
+      <span class="desc">Framework</span>
+    </div>
+    <div class="divider"></div>
+    <div class="info-item">
+      <span class="num">Tailwind</span>
+      <span class="desc">Estilização</span>
+    </div>
+    <div class="divider"></div>
+    <div class="info-item">
+      <span class="num">Vite</span>
+      <span class="desc">Build Tool</span>
+    </div>
+  </div>
+</body>
+</html>

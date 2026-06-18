@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Petiva – Laptop Mockup</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1920px; height: 1080px;
+    overflow: hidden;
+    background: #020c1a;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+  }
+
+  .bg-gradient {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 55% 80%, rgba(41,182,185,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 10% 60%, rgba(31,54,130,0.3) 0%, transparent 55%),
+      linear-gradient(150deg, #06111f 0%, #020c1a 50%, #030f1e 100%);
+    z-index: 0;
+  }
+
+  .bg-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(41,182,185,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(41,182,185,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 1;
+  }
+
+  .bg-text {
+    position: absolute;
+    top: -30px; left: -30px;
+    font-size: 420px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.022);
+    letter-spacing: -15px;
+    line-height: 1;
+    z-index: 1;
+    user-select: none;
+  }
+
+  .glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 2;
+    pointer-events: none;
+  }
+  .glow-1 { width: 600px; height: 400px; background: rgba(41,182,185,0.1); bottom: -100px; right: 200px; }
+  .glow-2 { width: 500px; height: 400px; background: rgba(31,54,130,0.2); top: 0; left: 100px; }
+
+  .content {
+    position: relative; z-index: 10;
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  /* ── LEFT PANEL ── */
+  .left-panel {
+    width: 420px;
+    padding: 80px 60px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #29B6B9;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .tag::before {
+    content: '';
+    width: 30px; height: 2px;
+    background: #29B6B9;
+  }
+
+  .left-panel h1 {
+    font-size: 48px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+  .left-panel h1 span { color: #29B6B9; }
+
+  .left-panel p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  .services {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .services li {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .services li::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: #29B6B9;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .url-badge {
+    margin-top: 40px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(41,182,185,0.1);
+    border: 1px solid rgba(41,182,185,0.3);
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 12px;
+    color: #29B6B9;
+    font-weight: 600;
+  }
+
+  /* ── LAPTOP ── */
+  .laptop-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+  }
+
+  .laptop {
+    position: relative;
+    width: 900px;
+    transform: perspective(1800px) rotateY(-12deg) rotateX(2deg);
+    transform-origin: center center;
+  }
+
+  /* Laptop lid */
+  .laptop-lid {
+    width: 900px;
+    position: relative;
+  }
+
+  /* screen bezel */
+  .screen-bezel {
+    background: #1a1a1a;
+    border-radius: 16px 16px 0 0;
+    padding: 22px 22px 14px;
+    box-shadow:
+      0 -2px 0 rgba(255,255,255,0.08),
+      0 0 60px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-bottom: none;
+  }
+
+  /* top bar with camera */
+  .screen-top-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .camera-dot {
+    width: 8px; height: 8px;
+    background: #333;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.05);
+  }
+
+  .screen-inner {
+    background: #000;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 506px;
+    position: relative;
+  }
+  .screen-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  /* screen glare */
+  .screen-glare {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  /* hinge */
+  .hinge {
+    height: 5px;
+    background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);
+    margin: 0;
+    border-radius: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+
+  /* laptop base */
+  .laptop-base {
+    background: linear-gradient(to bottom, #2a2a2a, #1f1f1f);
+    height: 22px;
+    border-radius: 0 0 12px 12px;
+    position: relative;
+    box-shadow:
+      0 8px 30px rgba(0,0,0,0.6),
+      0 20px 60px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-top: none;
+  }
+
+  /* touchpad */
+  .laptop-base::after {
+    content: '';
+    position: absolute;
+    bottom: 4px; left: 50%; transform: translateX(-50%);
+    width: 200px; height: 12px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* laptop glow */
+  .laptop-glow {
+    position: absolute;
+    bottom: -60px;
+    left: 50%; transform: translateX(-50%);
+    width: 700px; height: 100px;
+    background: rgba(41,182,185,0.12);
+    filter: blur(40px);
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  /* ── BADGE CARDS ── */
+  .badge-card {
+    position: absolute;
+    background: rgba(6,17,31,0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(41,182,185,0.25);
+    border-radius: 14px;
+    padding: 16px 22px;
+    z-index: 20;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  .badge-card .badge-num {
+    font-size: 26px;
+    font-weight: 900;
+    color: #29B6B9;
+    display: block;
+  }
+  .badge-card .badge-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+  .badge-1 { top: 80px; right: 20px; }
+  .badge-2 { bottom: 120px; right: -40px; }
+</style>
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  <div class="bg-grid"></div>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  <div class="bg-text">Petiva</div>
+
+  <div class="content">
+    <!-- Left panel -->
+    <div class="left-panel">
+      <div class="tag">Projeto · 2025</div>
+      <h1>Petiva<br><span>Centro</span><br>Veterinário</h1>
+      <p>Landing page completa para clínica veterinária especializada, com 15 especialidades e foco em conversão.</p>
+      <ul class="services">
+        <li>UI/UX Design</li>
+        <li>Desenvolvimento Frontend</li>
+        <li>SEO & Performance</li>
+        <li>Integração WhatsApp</li>
+        <li>Design Responsivo</li>
+      </ul>
+      <div class="url-badge">
+        🔗 petivavet.com.br
+      </div>
+    </div>
+
+    <!-- Laptop -->
+    <div class="laptop-container">
+      <div class="laptop">
+        <div class="laptop-lid">
+          <div class="screen-bezel">
+            <div class="screen-top-bar">
+              <div class="camera-dot"></div>
+            </div>
+            <div class="screen-inner">
+              <img src="../petiva-screenshots/01-desktop-hero.png" alt="Petiva website" />
+              <div class="screen-glare"></div>
+            </div>
+          </div>
+          <div class="hinge"></div>
+          <div class="laptop-base"></div>
+          <div class="laptop-glow"></div>
+        </div>
+      </div>
+
+      <!-- Badge cards -->
+      <div class="badge-card badge-1">
+        <span class="badge-num">15</span>
+        <span class="badge-label">Especialidades</span>
+      </div>
+      <div class="badge-card badge-2">
+        <span class="badge-num">100%</span>
+        <span class="badge-label">Responsivo</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

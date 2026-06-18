@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Petiva – Mobile Showcase</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1920px; height: 1080px;
+    overflow: hidden;
+    background: #020c1a;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+  }
+
+  .bg-gradient {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 75% 60%, rgba(41,182,185,0.13) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 20% 40%, rgba(31,54,130,0.28) 0%, transparent 55%),
+      linear-gradient(150deg, #060f1c 0%, #020c1a 55%, #030e1c 100%);
+    z-index: 0;
+  }
+  .bg-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(41,182,185,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(41,182,185,0.035) 1px, transparent 1px);
+    background-size: 60px 60px; z-index: 1;
+  }
+  .bg-text {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 360px; font-weight: 900; letter-spacing: -12px;
+    color: rgba(255,255,255,0.018);
+    white-space: nowrap; z-index: 1; user-select: none;
+  }
+  .glow { position:absolute; border-radius:50%; filter:blur(100px); z-index:2; pointer-events:none; }
+  .g1 { width:500px; height:500px; background:rgba(41,182,185,0.1); right:100px; top:50%; transform:translateY(-50%); }
+  .g2 { width:400px; height:300px; background:rgba(31,54,130,0.22); left:50px; top:100px; }
+
+  /* ── LEFT TEXT ── */
+  .left {
+    position: absolute; top:0; left:0; bottom:0;
+    width: 500px; padding: 80px 60px;
+    display: flex; flex-direction: column; justify-content: center;
+    z-index: 10;
+  }
+  .tag {
+    font-size:11px; font-weight:700; letter-spacing:5px; text-transform:uppercase;
+    color:#29B6B9; margin-bottom:20px;
+    display:flex; align-items:center; gap:12px;
+  }
+  .tag::before { content:''; width:28px; height:2px; background:#29B6B9; }
+
+  .left h2 {
+    font-size: 60px; font-weight:900; color:#fff; line-height:1.05;
+    letter-spacing:-1px; margin-bottom: 28px;
+  }
+  .left h2 span { color:#29B6B9; }
+
+  .left p {
+    font-size:15px; line-height:1.75; color:rgba(255,255,255,0.45);
+    margin-bottom:40px; max-width:360px;
+  }
+
+  /* objective cards */
+  .obj-grid {
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  .obj-card {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:12px; padding:16px;
+  }
+  .obj-num {
+    font-size:11px; font-weight:700; letter-spacing:3px;
+    color:#29B6B9; margin-bottom:8px; display:block;
+  }
+  .obj-title {
+    font-size:13px; font-weight:700; color:#fff; margin-bottom:4px;
+  }
+  .obj-desc {
+    font-size:11px; color:rgba(255,255,255,0.35); line-height:1.5;
+  }
+
+  /* ── RIGHT PHONES ── */
+  .right {
+    position: absolute; right:0; top:0; bottom:0;
+    width: 1320px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 20px;
+    z-index: 10;
+    padding: 40px 60px 40px 0;
+  }
+
+  .phone {
+    width: 200px; height: 430px;
+    background: #181818;
+    border-radius: 34px;
+    border: 2px solid rgba(255,255,255,0.12);
+    box-shadow:
+      0 0 0 1px rgba(0,0,0,0.5),
+      0 30px 80px rgba(0,0,0,0.6),
+      0 0 40px rgba(41,182,185,0.08);
+    position: relative; overflow: hidden; flex-shrink: 0;
+  }
+  .phone::before {
+    content:''; position:absolute;
+    top:11px; left:50%; transform:translateX(-50%);
+    width:70px; height:22px;
+    background:#000; border-radius:14px; z-index:5;
+  }
+  .phone img {
+    width:100%; height:100%;
+    object-fit:cover; object-position:top;
+  }
+  .phone-ref {
+    position:absolute; inset:0;
+    background:linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 50%);
+    z-index:3; pointer-events:none;
+  }
+  .phone-btn-r { position:absolute; right:-3px; top:100px; width:3px; height:45px; background:rgba(255,255,255,0.12); border-radius:2px; }
+  .phone-btn-l1 { position:absolute; left:-3px; top:90px; width:3px; height:28px; background:rgba(255,255,255,0.12); border-radius:2px; }
+  .phone-btn-l2 { position:absolute; left:-3px; top:128px; width:3px; height:55px; background:rgba(255,255,255,0.12); border-radius:2px; }
+
+  /* varied heights */
+  .p1 { transform: translateY(40px); opacity:0.8; filter:brightness(0.8); }
+  .p2 { width:220px; height:478px; transform: translateY(10px); z-index:3;
+        box-shadow: 0 0 0 1px rgba(0,0,0,0.5), 0 40px 100px rgba(0,0,0,0.8), 0 0 60px rgba(41,182,185,0.18); }
+  .p3 { transform: translateY(-10px); z-index:2; }
+  .p4 { transform: translateY(30px); opacity:0.85; filter:brightness(0.85); }
+  .p5 { transform: translateY(60px); opacity:0.7; filter:brightness(0.75); }
+
+  /* label badge */
+  .phone-badge {
+    position:absolute; bottom:-40px; left:50%; transform:translateX(-50%);
+    font-size:10px; font-weight:600; letter-spacing:2px; text-transform:uppercase;
+    color:rgba(255,255,255,0.3); white-space:nowrap;
+  }
+</style>
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  <div class="bg-grid"></div>
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+  <div class="bg-text">MOBILE</div>
+
+  <div class="left">
+    <div class="tag">Design Mobile-First</div>
+    <h2>Experiência<br><span>Perfeita</span><br>no Mobile</h2>
+    <p>Interface totalmente otimizada para smartphones, garantindo máxima conversão em todos os tamanhos de tela.</p>
+
+    <div class="obj-grid">
+      <div class="obj-card">
+        <span class="obj-num">01</span>
+        <div class="obj-title">Performance</div>
+        <div class="obj-desc">Carregamento rápido e animações fluidas</div>
+      </div>
+      <div class="obj-card">
+        <span class="obj-num">02</span>
+        <div class="obj-title">Conversão</div>
+        <div class="obj-desc">CTA de WhatsApp fixo e visível</div>
+      </div>
+      <div class="obj-card">
+        <span class="obj-num">03</span>
+        <div class="obj-title">UX Mobile</div>
+        <div class="obj-desc">Touch-friendly e menu responsivo</div>
+      </div>
+      <div class="obj-card">
+        <span class="obj-num">04</span>
+        <div class="obj-title">SEO</div>
+        <div class="obj-desc">Otimizado para buscas locais em SP</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="phone p1">
+      <img src="../petiva-screenshots/14-mobile-section4.png" alt="" />
+      <div class="phone-btn-r"></div><div class="phone-btn-l1"></div><div class="phone-btn-l2"></div>
+      <div class="phone-ref"></div>
+    </div>
+    <div class="phone p2">
+      <img src="../petiva-screenshots/10-mobile-hero.png" alt="" />
+      <div class="phone-btn-r"></div><div class="phone-btn-l1"></div><div class="phone-btn-l2"></div>
+      <div class="phone-ref"></div>
+    </div>
+    <div class="phone p3">
+      <img src="../petiva-screenshots/11-mobile-section1.png" alt="" />
+      <div class="phone-btn-r"></div><div class="phone-btn-l1"></div><div class="phone-btn-l2"></div>
+      <div class="phone-ref"></div>
+    </div>
+    <div class="phone p4">
+      <img src="../petiva-screenshots/12-mobile-section2.png" alt="" />
+      <div class="phone-btn-r"></div><div class="phone-btn-l1"></div><div class="phone-btn-l2"></div>
+      <div class="phone-ref"></div>
+    </div>
+    <div class="phone p5">
+      <img src="../petiva-screenshots/13-mobile-section3.png" alt="" />
+      <div class="phone-btn-r"></div><div class="phone-btn-l1"></div><div class="phone-btn-l2"></div>
+      <div class="phone-ref"></div>
+    </div>
+  </div>
+</body>
+</html>
