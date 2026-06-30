@@ -14,18 +14,18 @@ export default function App() {
   const sliderRef = useRef(null);
 
   const galleryImages = [
-    "/estrutura/Centro-cirurgico-scaled.jpeg",
-    "/estrutura/IMG_7868-scaled.jpg",
-    "/estrutura/IMG_7865-1-scaled.jpg",
+    "/estrutura/Clinica-Veterinaria-perto-de-mim-mais-proxima-Centro-de-Sao-Paulo-parasitas-doencas-vacinacao-Castracao-tratamento-alimentacao-atendimento-especializado-caes-gatos.-consulta-veterinaria-checkup-1-scaled.jpg",
+    "/estrutura/problemas-dentarios-cinomose-vermes-raiva-gripe-canina-doenca-do-trato-urinario-vacinacao-medicamentos-tratamentoatendimento-especializado-cachorro-gato-consulta-leishmaniose-veterinaria-checkup-scaled.jpg",
+    "/estrutura/Clinica-Veterinaria-perto-de-mim-mais-proxima-Centro-de-Sao-Paulo-parasitas-doencas-vacinacao-Castracao-tratamento-alimentacao-atendimento-especializado-caes-gatos.-consulta-veterinaria.-scaled.jpg",
+    "/estrutura/Clinica-Veterinaria-perto-de-mim-mais-proxima-Centro-de-Sao-Paulo-parasitas-doencas-vacinacao-Castracao-internacao-alimentacao-atendimento-especializado-caes-gatos.-consulta-veterinaria-1-scaled.jpg",
+    "/estrutura/Clinica-Veterinaria-perto-de-mim-mais-proxima-Centro-de-Sao-Paulo-Consultas-doencas-vacinacao-Castracao-internacao-alimentacao-atendimento-especializado-caes-gatos.-consulta-veterinaria-SALA-scaled.jpg",
+    "/estrutura/Clinica-Veterinaria-perto-de-mim-mais-proxima-Centro-de-Sao-Paulo-Consultas-Internacoes-Cirurgias-Exames-Castracao-internacao-emergencia-24h-atendimento-especializado-caes-gatos.-diagnostico-recep-1-scaled.jpg",
     "/estrutura/IMG_7845-scaled.jpg",
+    "/estrutura/IMG_7865-1-scaled.jpg",
+    "/estrutura/IMG_7868-scaled.jpg",
     "/estrutura/IMG_7843-1-scaled.jpg",
     "/estrutura/Paramentacao-1-scaled.jpg",
-    "/estrutura/Clinica-Veterinaria-perto-de-mim-mais-proxima-Centro-de-Sao-Paulo-Consultas-Internacoes-Cirurgias-Exames-Castracao-internacao-emergencia-24h-atendimento-especializado-caes-gatos.-diagnostico-recep-1-scaled.jpg",
-    "/estrutura/Clinica-Veterinaria-perto-de-mim-mais-proxima-Centro-de-Sao-Paulo-Consultas-doencas-vacinacao-Castracao-internacao-alimentacao-atendimento-especializado-caes-gatos.-consulta-veterinaria-SALA-scaled.jpg",
-    "/estrutura/Clinica-Veterinaria-perto-de-mim-mais-proxima-Centro-de-Sao-Paulo-parasitas-doencas-vacinacao-Castracao-internacao-alimentacao-atendimento-especializado-caes-gatos.-consulta-veterinaria-1-scaled.jpg",
-    "/estrutura/Clinica-Veterinaria-perto-de-mim-mais-proxima-Centro-de-Sao-Paulo-parasitas-doencas-vacinacao-Castracao-tratamento-alimentacao-atendimento-especializado-caes-gatos.-consulta-veterinaria.-scaled.jpg",
-    "/estrutura/problemas-dentarios-cinomose-vermes-raiva-gripe-canina-doenca-do-trato-urinario-vacinacao-medicamentos-tratamentoatendimento-especializado-cachorro-gato-consulta-leishmaniose-veterinaria-checkup-scaled.jpg",
-    "/estrutura/Clinica-Veterinaria-perto-de-mim-mais-proxima-Centro-de-Sao-Paulo-parasitas-doencas-vacinacao-Castracao-tratamento-alimentacao-atendimento-especializado-caes-gatos.-consulta-veterinaria-checkup-1-scaled.jpg"
+    "/estrutura/Centro-cirurgico-scaled.jpeg"
   ];
 
   const nextLightboxImage = (e) => {
