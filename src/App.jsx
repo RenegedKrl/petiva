@@ -361,13 +361,16 @@ export default function App() {
         {/* 8.5. ESTRUTURA GALERIA */}
         <section id="estrutura-galeria" className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary text-center mb-16">Conheça nossa <span className="text-accent">Estrutura</span></h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary text-center mb-4">Conheça nossa <span className="text-accent">Estrutura</span></h2>
+            <p className="text-lg text-text-body text-center mb-12 max-w-2xl mx-auto">
+              O ambiente perfeito e seguro para a recuperação do seu melhor amigo.
+            </p>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {(showAllGallery ? galleryImages : galleryImages.slice(0, 8)).map((imgSrc, idx) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {(showAllGallery ? galleryImages : galleryImages.slice(0, 6)).map((imgSrc, idx) => (
                 <div 
                   key={idx} 
-                  className="aspect-square overflow-hidden rounded-xl cursor-pointer shadow-sm hover:shadow-lg transition-all group"
+                  className="aspect-[4/3] md:aspect-square overflow-hidden rounded-2xl cursor-pointer shadow-sm hover:shadow-lg transition-all group"
                   onClick={() => setLightboxImageIndex(idx)}
                 >
                   <img 
