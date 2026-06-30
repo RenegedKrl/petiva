@@ -326,7 +326,7 @@ export default function App() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="order-2 md:order-1">
                 <img 
-                  src="/design-sem-nome-12.png" 
+                  src="/foto-dra.jpg" 
                   alt="Dra. Talita Oliveira Rodrigues" 
                   className="rounded-2xl shadow-2xl w-full aspect-[3/4] md:aspect-[4/5] object-cover object-top"
                 />
