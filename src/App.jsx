@@ -370,7 +370,7 @@ export default function App() {
               {(showAllGallery ? galleryImages : galleryImages.slice(0, 6)).map((imgSrc, idx) => (
                 <div 
                   key={idx} 
-                  className="aspect-video overflow-hidden rounded-2xl cursor-pointer shadow-sm hover:shadow-lg transition-all group"
+                  className="aspect-[4/3] overflow-hidden rounded-2xl cursor-pointer shadow-sm hover:shadow-lg transition-all group"
                   onClick={() => setLightboxImageIndex(idx)}
                 >
                   <img 
